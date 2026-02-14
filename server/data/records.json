@@ -1,0 +1,41 @@
+{
+  "clothInwards": [
+    {
+      "id": 1,
+      "bcNo": "001",
+      "bcDate": "2026-02-14",
+      "party": "Mohan gudown",
+      "orderNo": "001",
+      "buyer": "nill",
+      "operator": "ram",
+      "dayNight": "Day",
+      "supervisor": "ram",
+      "lotNo": "001",
+      "dyeingDcNo": "001",
+      "dyeingName": "Lathir Dyeing",
+      "partyDcNo": "001",
+      "pDcWeight": "500.400",
+      "vehicleNo": "TN 39",
+      "driver": "ram",
+      "team": "ram",
+      "date": "2026-02-14",
+      "narration": "",
+      "items": [
+        {
+          "id": 1,
+          "color": "",
+          "dia": "",
+          "fabric": "",
+          "gg": "",
+          "rolls": 0,
+          "totKgs": 0,
+          "remarks": ""
+        }
+      ],
+      "createdAt": "2026-02-14T14:51:22.178Z"
+    }
+  ],
+  "clothOutwards": [],
+  "nextInwardId": 2,
+  "nextOutwardId": 1
+}

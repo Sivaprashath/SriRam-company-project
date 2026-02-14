@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SRI RAM - Textile Industry Design System */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Primary - Deep Teal for professionalism */
+    --background: 45 25% 97%;
+    --foreground: 195 50% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 195 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 195 50% 15%;
+
+    /* Primary - Deep Teal */
+    --primary: 185 60% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Golden Amber for textile warmth */
+    --secondary: 40 85% 55%;
+    --secondary-foreground: 195 50% 15%;
+
+    --muted: 45 15% 90%;
+    --muted-foreground: 195 20% 45%;
+
+    /* Accent - Warm Golden */
+    --accent: 40 85% 55%;
+    --accent-foreground: 195 50% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 45 20% 85%;
+    --input: 45 20% 85%;
+    --ring: 185 60% 28%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --table-header: 40 70% 70%;
+    --table-header-foreground: 195 50% 15%;
+    --success: 150 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 195 50% 8%;
+    --foreground: 45 25% 95%;
+
+    --card: 195 45% 12%;
+    --card-foreground: 45 25% 95%;
+
+    --popover: 195 45% 12%;
+    --popover-foreground: 45 25% 95%;
+
+    --primary: 185 55% 45%;
+    --primary-foreground: 195 50% 8%;
+
+    --secondary: 40 70% 50%;
+    --secondary-foreground: 195 50% 8%;
+
+    --muted: 195 35% 18%;
+    --muted-foreground: 45 15% 65%;
+
+    --accent: 40 70% 50%;
+    --accent-foreground: 195 50% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 195 30% 22%;
+    --input: 195 30% 22%;
+    --ring: 185 55% 45%;
+
+    --table-header: 40 60% 35%;
+    --table-header-foreground: 0 0% 100%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .nav-item {
+    @apply px-4 py-2 font-medium text-foreground/80 hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200;
+  }
+
+  .nav-item-active {
+    @apply px-4 py-2 font-medium text-primary bg-primary/10 rounded-lg;
+  }
+
+  .form-card {
+    @apply bg-card rounded-xl shadow-lg border border-border p-6;
+  }
+
+  .table-header-cell {
+    @apply bg-[hsl(var(--table-header))] text-[hsl(var(--table-header-foreground))] font-semibold px-4 py-3 text-left;
+  }
+
+  .table-body-cell {
+    @apply px-4 py-3 border-b border-border;
+  }
+
+  .input-label {
+    @apply text-sm font-medium text-muted-foreground mb-1.5 block;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md rounded-xl shadow-xl border border-border/50;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .shadow-elegant {
+    box-shadow: 0 10px 40px -10px hsl(var(--primary) / 0.2);
+  }
+}

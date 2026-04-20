@@ -71,6 +71,9 @@ const ClothOutwards: React.FC = () => {
 
   const handleProcess = () => void submitRecord();
   const handleSave = () => void submitRecord();
+  const handlePrint = () => {
+    window.print();
+  };
 
   // Calculate process loss/gain
   const totalKgs = clothItems.reduce((sum, item) => sum + item.totKgs, 0);
@@ -79,6 +82,31 @@ const ClothOutwards: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <style>
+        {`
+          @media print {
+            .no-print, 
+            header, 
+            nav, 
+            button, 
+            .action-buttons {
+              display: none !important;
+            }
+            .form-card {
+              border: none !important;
+              box-shadow: none !important;
+              padding: 0 !important;
+              margin: 0 !important;
+            }
+            body {
+              background: white !important;
+            }
+            .input-label {
+              font-weight: bold;
+            }
+          }
+        `}
+      </style>
       <Header />
       
       <main className="container mx-auto px-4 py-6">
@@ -267,7 +295,7 @@ const ClothOutwards: React.FC = () => {
               <Trash2 className="w-4 h-4" />
               Delete
             </Button>
-            <Button variant="outline" className="gap-2">
+            <Button variant="outline" className="gap-2" onClick={handlePrint}>
               <Printer className="w-4 h-4" />
               Print
             </Button>

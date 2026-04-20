@@ -17,6 +17,8 @@ const Dashboard: React.FC = () => {
   const stats = [
     { title: 'Today\'s Inwards', value: statsData?.todayInwards ?? '–', subtitle: 'Entries', icon: Package, color: 'primary' as const },
     { title: 'Today\'s Outwards', value: statsData?.todayOutwards ?? '–', subtitle: 'Deliveries', icon: Truck, color: 'secondary' as const },
+    { title: 'Total Inwards', value: statsData?.totalInwards ?? '–', subtitle: 'All time', icon: Package, color: 'primary' as const },
+    { title: 'Total Outwards', value: statsData?.totalOutwards ?? '–', subtitle: 'All time', icon: Truck, color: 'secondary' as const },
     { title: 'Total Stock', value: statsData != null ? statsData.totalStockKgs.toLocaleString('en-IN', { maximumFractionDigits: 3 }) : '–', subtitle: 'Kgs', icon: Scale, color: 'primary' as const },
     { title: 'Monthly Growth', value: statsData != null ? `${statsData.monthlyGrowthPercent >= 0 ? '+' : ''}${statsData.monthlyGrowthPercent}%` : '–', subtitle: 'vs last month', icon: TrendingUp, color: 'secondary' as const },
   ];
@@ -45,7 +47,7 @@ const Dashboard: React.FC = () => {
 
         {/* Stats Section */}
         <div className="container mx-auto px-4 -mt-12 relative z-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (

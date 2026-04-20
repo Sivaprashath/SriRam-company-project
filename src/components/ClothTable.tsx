@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Plus, Trash2 } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export interface ClothItem {
   id: number;
@@ -18,6 +19,17 @@ interface ClothTableProps {
   items: ClothItem[];
   onItemsChange: (items: ClothItem[]) => void;
 }
+
+const colorOptions = [
+  'White', 'Black', 'Red', 'Blue', 'Green', 'Yellow', 'Grey', 'Navy', 'Maroon', 'Orange', 'Pink', 'Purple',
+  'Royal Blue', 'Sky Blue', 'Light Grey', 'Dark Grey', 'Cream', 'Beige', 'Brown', 'Olive', 'Teal', 'Magenta',
+];
+
+const fabricOptions = [
+  'Cotton', 'Polyester', 'Nylon', 'Silk', 'Wool', 'Linen', 'Spandex', 'Viscose', 'Acrylic', 'Rayon',
+  'Jersey', 'Interlock', 'Rib', 'Pique', 'Fleece', 'Terry', 'Suede', 'Velvet', 'Denim', 'Canvas',
+  'Airtex', 'Double Jersey', 'Single Jersey', 'Jacquard', 'Mesh', 'Taffeta', 'Chiffon', 'Georgette',
+];
 
 const ClothTable: React.FC<ClothTableProps> = ({ items, onItemsChange }) => {
   const addRow = () => {
@@ -71,12 +83,19 @@ const ClothTable: React.FC<ClothTableProps> = ({ items, onItemsChange }) => {
               <tr key={item.id} className="hover:bg-muted/50 transition-colors">
                 <td className="table-body-cell text-center font-medium">{index + 1}</td>
                 <td className="table-body-cell">
-                  <Input
+                  <Select
                     value={item.color}
-                    onChange={(e) => updateItem(item.id, 'color', e.target.value)}
-                    className="h-9"
-                    placeholder="e.g., Grey + Black"
-                  />
+                    onValueChange={(value) => updateItem(item.id, 'color', value)}
+                  >
+                    <SelectTrigger className="h-9 w-full">
+                      <SelectValue placeholder="Select Color" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {colorOptions.map((color) => (
+                        <SelectItem key={color} value={color}>{color}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </td>
                 <td className="table-body-cell">
                   <Input
@@ -87,12 +106,19 @@ const ClothTable: React.FC<ClothTableProps> = ({ items, onItemsChange }) => {
                   />
                 </td>
                 <td className="table-body-cell">
-                  <Input
+                  <Select
                     value={item.fabric}
-                    onChange={(e) => updateItem(item.id, 'fabric', e.target.value)}
-                    className="h-9"
-                    placeholder="Airtex"
-                  />
+                    onValueChange={(value) => updateItem(item.id, 'fabric', value)}
+                  >
+                    <SelectTrigger className="h-9 w-full">
+                      <SelectValue placeholder="Select Fabric" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {fabricOptions.map((fabric) => (
+                        <SelectItem key={fabric} value={fabric}>{fabric}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </td>
                 <td className="table-body-cell">
                   <Input

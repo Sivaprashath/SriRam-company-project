@@ -38,6 +38,8 @@ export const api = {
       request<{
         todayInwards: number;
         todayOutwards: number;
+        totalInwards: number;
+        totalOutwards: number;
         totalStockKgs: number;
         monthlyGrowthPercent: number;
       }>('/api/dashboard/stats'),

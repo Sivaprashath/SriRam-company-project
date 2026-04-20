@@ -75,6 +75,9 @@ export async function getDashboardStats() {
   const todayInwards = allInwards.filter((r) => (r.bcDate || r.date || '').toString().startsWith(today)).length;
   const todayOutwards = allOutwards.filter((r) => (r.dcDate || '').toString().startsWith(today)).length;
 
+  const totalInwards = allInwards.length;
+  const totalOutwards = allOutwards.length;
+
   let totalInwardKgs = 0;
   let totalOutwardKgs = 0;
   allInwards.forEach((r) => {
@@ -100,6 +103,8 @@ export async function getDashboardStats() {
   return {
     todayInwards,
     todayOutwards,
+    totalInwards,
+    totalOutwards,
     totalStockKgs: Math.round(totalStockKgs * 1000) / 1000,
     monthlyGrowthPercent,
   };

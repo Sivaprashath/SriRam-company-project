@@ -20,8 +20,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         return true;
       }
       return false;
-    } catch {
-      return false;
+    } catch (err) {
+      // Re-throw to allow LoginPage to handle connection errors correctly
+      throw err;
     }
   };
 
